@@ -13,7 +13,7 @@ const port = process.env.PORT; // Use process.env.PORT for flexibility
 
 // Middleware
 app.use(cors({
-    origin: 'https://peerstream.vercel.app/', // Frontend running on port 3000
+    origin: "https://peerstream.vercel.app", // Frontend running on port 3000
     methods: ['GET', 'POST'],
     credentials: true,
 }));
@@ -39,7 +39,7 @@ app.use((err, req, res, next) => {
 const server = http.createServer(app);
 const io = new Server(server, {
     cors: {
-        origin: 'https://peerstream.vercel.app/', // Frontend running on port 3000
+        origin: "https://peerstream.vercel.app", // Frontend running on port 3000
         methods: ['GET', 'POST'],
         credentials: true,
     }
