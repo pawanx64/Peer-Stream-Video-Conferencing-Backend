@@ -5,10 +5,10 @@ const createError = require('../Utilis/Error');
 
 exports.register = async (req, res,next) => {
     const { username, password, email } = req.body;
-    const newUser = new User({ username, password, email });
     try {
         const salt = await bcrypt.genSalt(10);
-        newUser.password = await bcrypt.hash(password, salt);
+        const hashedpassword = await bcrypt.hash(password, salt);
+        const newUser = new User({ username, password: hashedpassword, email });
         await newUser.save();
         res.status(200).send("User registered successfully");
     } catch (err) {
