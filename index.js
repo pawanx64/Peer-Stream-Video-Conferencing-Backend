@@ -123,3 +123,6 @@ server.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
 
+app.get("/",(req,res)=>{
+    res.send(`<h1>This Is HomePage</h1>`);
+})
